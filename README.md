@@ -21,7 +21,19 @@ SIS establishes the mapping between the properties or semantic content of the "s
 
  * In the last step, the mapping of indirect equivalences between the remaining pairs of the previous process is performed. In order to establish their relationships, a set of semantic rules will be used whose objective is the classification of values according to the content and semantic relationships between attributes.
 
-To improve the accessibility to the tool, a Graphical user Interface (GUI) and a WEB service implemented with Swagger have been developed and integrated to document the operations available through the tool's REST API. Figure 1 shows the documentation of the API Rest provided by the component.
 
  ![Imagen1](https://github.com/grys-upm/SISS/assets/60104587/38035d52-fc1a-4bcb-a3b6-55474161646b)
+
+
+
+To improve the accessibility to the tool, a Graphical user Interface (GUI) and a WEB service implemented with Swagger have been developed and integrated to document the operations available through the tool's REST API. Figure 1 shows the documentation of the API Rest provided by the component.
+
+
+![Imagen2](https://github.com/grys-upm/SISS/assets/60104587/ade1bfbb-bbdb-4ecc-8d6a-079d54145595)
+
+
+The Semantic Interoperability Support System (SIS) GUI is shown below. The objective of this interface is to enhance the accessibility aspect, through a simple and easy to use user interface.
+
+
+![Imagen3](https://github.com/grys-upm/SISS/assets/60104587/9bc260f1-ea0b-447f-850d-0e8842cc579c)
 
