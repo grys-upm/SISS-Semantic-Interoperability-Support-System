@@ -32,8 +32,20 @@ To improve the accessibility to the tool, a Graphical user Interface (GUI) and a
 ![Imagen2](https://github.com/grys-upm/SISS/assets/60104587/ade1bfbb-bbdb-4ecc-8d6a-079d54145595)
 
 
+
 The Semantic Interoperability Support System (SIS) GUI is shown below. The objective of this interface is to enhance the accessibility aspect, through a simple and easy to use user interface.
 
 
 ![Imagen3](https://github.com/grys-upm/SISS/assets/60104587/9bc260f1-ea0b-447f-850d-0e8842cc579c)
 
+
+# References
+- Semantic Interoperability Support System [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7263254.svg)](https://doi.org/10.5281/zenodo.7263254)
+
+# License
+Parts copyrighted by Universidad Politécnica de Madrid (UPM) are distributed under a dual license scheme:
+- For academic uses: Licensed under GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+- For any other use: Licensed under the Apache License, Version 2.0.
+Parts copyrighted by AFarCloud are distributed under the Apache License, Version 2.0.
+
+For further details on the license, please refer to the [License](LICENSE.md) file.
