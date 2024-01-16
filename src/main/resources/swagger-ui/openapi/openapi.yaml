@@ -1,0 +1,367 @@
+openapi: 3.0.0
+info:
+  version: 1.2.1
+  title: Semantic Interoperability Support System (SIS)
+  description: 'This is the Semantic Interoperability Support System (SIS) developed to support semantic analysis and mapping generation between spatio-temporal data models. This component is able to trace the mapping between equivalent data modelled under different data models. Thanks to the mapping generated, the development of translator components or gateways to enable semantic interoperability between spatio-temporal data management systems is automated.'
+  contact:
+    name: Mario San Emeterio de la Parte - UPM
+    email: mario.sanemeterio@upm.es
+externalDocs:
+   description: Find out more about GRyS
+   url: https://grys.etsist.upm.es/
+servers:
+- url: https://localhost:9105/
+  description: PROD  
+tags:
+  - name: SemanticInteroperabilitySupportSystem
+  
+paths:
+  "/analyse/generateMapping/":
+    get:
+      tags:
+        - observations
+      summary: Generate mapping between equivalent data.  
+      operationId: generateMap 
+      parameters: 
+        - name: sourceJSON
+          in: query
+          description: Source JSON for mapping
+          required: true
+          content: 
+            application/json:
+              schema: 
+                type: object
+              example:
+                sensorData:
+                  resourceId: afc_node_0100_0
+                  resourceType: soil
+                  resourceUrn: urn:afc:AS03:cropsManagement:RISE:soil:afc_node_0100_0
+                  latitude: 57.9202195
+                  longitude: 16.4001396
+                  altitude: 0
+                  preprocessing: false
+                  pythonScript: ''
+                  resultTime: 1697469662
+                  observations:
+                    - observedProperty: battery
+                      uom: https://qudt.org/vocab/unit/V
+                      min_value: 0
+                      max_value: 0
+                      accuracy: 0.0001
+                  supportedProtocol: MQTT
+                  hardwareVersion: '0100'
+                  softwareVersion: ''
+                  firmwareVersion: Rev.23
+                multiVariableObservationData:
+                  resourceId: urn:afc:AS03:cropsManagement:RISE:soil:afc_node_0100_0
+                  sequenceNumber: 57898
+                  observations:
+                    - observedProperty: battery
+                      resultTime: 1697469662
+                      result:
+                        value: 0.05210000000000001
+                
+                
+        - name: targetJSON
+          in: query
+          description: Target Json for mapping
+          required: true
+          content: 
+            application/json: 
+              schema: 
+                type: object
+              example:
+                '@graph':
+                  - '@id': https://www.w3id.org/afarcloud/pCoord?lat=57.9202195&amp;long=16.4001396
+                    type: Point
+                    asWKT: POINT(16.4001396 57.9202195)
+                  - '@id': https://www.w3id.org/afarcloud/poi?lat=57.9202195&amp;long=16.4001396
+                    type: Feature
+                    hasGeometry: https://www.w3id.org/afarcloud/pCoord?lat=57.9202195&amp;long=16.4001396
+                  - '@id': urn:afc:AS03:cropsManagement:RISE:soil:afc_node_0100_0
+                    type:
+                      - SoilSensor
+                      - AfarcloudSensors
+                  - '@id': urn:afc:AS03:cropsManagement:RISE:soil:afc_node_0100_0:battery-1583311439683
+                    type: Observation
+                    hasFeatureOfInterest: https://www.w3id.org/afarcloud/poi?lat=57.9202195&amp;long=16.4001396
+                    hasResult: urn:afc:AS03:cropsManagement:RISE:soil:afc_node_0100_0:battery-1583311439683/q1
+                    madeBySensor: urn:afc:AS03:cropsManagement:RISE:soil:afc_node_0100_0
+                    observedProperty: https://www.w3id.org/afarcloud/battery
+                    resultTime: '2023-10-16T15:21:02Z'
+                  - '@id': urn:afc:AS03:cropsManagement:RISE:soil:afc_node_0100_0:battery-1583311439683/q1
+                    type: QuantityValue
+                    identifier: afc_node_0100_0/battery-1583311439683/q1
+                    numericValue: '0.05210000000000001'
+                    unit: https://qudt.org/vocab/unit/V
+                
+      responses:
+        405:
+          description: "Invalid input: not JSON-compliant"
+        415:
+          description: "Invalid input: not a JSON"
+        200:
+          description: "Successful Operation"
+        5XX:
+          description: "Unexpected error"
+
+      x-codegen-request-body-name: body
+    
+components:
+  schemas:
+    SensorAccumulatedMeasurements:
+      type: object
+      title: The Schema for several measurements of the same resource (complete version)
+      required:
+        - resourceId
+        - location
+        - sequenceNumber
+        - observedProperty
+        - uom
+        - observations
+      additionalProperties: false
+      properties:
+        resourceId:
+          type: string
+          title: The Resourceid
+          default: '' 
+          pattern: 'urn:afc(:[^:]+){5}'
+          example: "urn:afc:AS12:environmentalObservations:TST:airSensor:airTemperatureSensor0012"
+        sequenceNumber:
+          type: integer
+          title: Sequence number
+          default: 0
+        location:
+          type: object
+          title: The Location Schema
+          required:
+            - latitude
+            - longitude
+            - altitude
+          additionalProperties: false
+          properties:
+            latitude:
+              type: number
+              title: Latitude
+              default: 0
+            longitude:
+              type: number
+              title: Longitude
+              default: 0
+            altitude:
+              type: number
+              title: Altitude
+              default: 0
+        observedProperty:
+          type: string
+          title: The Observed property
+          default: ''
+        uom:
+          type: string
+          title: Unity of measure
+          default: ''
+        observations:
+          type: array
+          title: Observations array
+          minItems: 1
+          items:
+            type: object
+            title: The Items Schema
+            required:
+              - resultTime
+              - result
+            additionalProperties: false
+            properties:
+              resultTime:
+                type: integer
+                title: Result time
+                default: 0
+              result:
+                type: object
+                title: The Result schema
+                required:
+                  - value
+                additionalProperties: false
+                properties:
+                  value:
+                    type: number
+                    title: The Value of result
+                    default: 0
+    SimpleMeasure:
+      type: object
+      title: The Schema for a Simple Measurement
+      required:
+        - resourceId
+        - sequenceNumber
+        - location
+        - observedProperty
+        - resultTime
+        - result
+      properties:
+        resourceId:
+          type: string
+          title: The ResourceId
+          default: ''
+          pattern: 'urn:afc(:[^:]+){5}'
+        sequenceNumber:
+          type: integer
+          title: The Sequence number
+          default: 0
+        location:
+          type: object
+          title: The Location object
+          required:
+            - latitude
+            - longitude
+            - altitude
+          properties:
+            latitude:
+              type: number
+              title: Latitude
+              default: 0
+            longitude:
+              type: number
+              title: Longitude
+              default: 0
+            altitude:
+              type: number
+              title: Altitude
+              default: 0
+          additionalProperties: false
+        observedProperty:
+          type: string
+          title: The Observed Property
+          default: ''
+        resultTime:
+          type: integer
+          title: The Result time
+          default: 0
+        result:
+          type: object
+          title: The Result Schema
+          required:
+            - value
+            - uom
+          properties:
+            value:
+              type: number
+              title: The Result Value
+              default: 0
+            uom:
+              type: string
+              title: The Unity of Measure
+              default: ''
+          additionalProperties: false
+      additionalProperties: false
+    
+    AlarmSchema:
+      title: Schema for list of alarms retrieved from AFC respository
+      type: object
+      properties:
+        alarmCode:
+          type: string
+        sequenceNumber:
+          type: integer
+        message:
+          type: string
+        resourceId:
+          type: string
+        source:
+          type: string
+        priority:
+          type: string
+          pattern: "low|medium|high"
+        alarmTime:
+          type: integer
+        status:
+          type: integer
+          minimum: 0
+          maximum: 2
+      required:
+        - alarmCode
+        - sequenceNumber
+        - message
+        - resourceId
+        - source
+        - priority
+        - alarmTime
+        - status
+        
+    GetAssetsSchema:
+      type: object
+      title: Assets Request Schema
+      properties:
+        authKey:
+          type: string
+          title: The authentication key
+        radius:
+          type: number
+          title: radius of the area
+        location:
+          type: object
+          title: The Location object
+          required:
+            - latitude
+            - longitude
+            - altitude
+          properties:
+            latitude:
+              type: number
+              title: Latitude
+              default: 0
+
+            longitude:
+              type: number
+              title: Longitude
+              default: 0
+     
+            altitude:
+              type: number
+              title: Altitude
+              default: 0
+             
+          additionalProperties: false
+      required:
+        - authKey
+        - location
+        - radius
+      additionalProperties: false
+  examples:
+   Alarm:
+    value:
+      alarmCode: UPM_TESTS
+      sequenceNumber: 3
+      message: UPM message
+      resourceId: sensor_airt_01
+      source: farmer
+      priority: high
+      alarmTime: 1564686378
+      status: 1
+    
+   GetAssetsRequest:
+    value:
+     authKey: 37250E0C324781ZZ9XX
+     location:
+      latitude: 45.45123
+      longitude: 25.25455
+      altitude: 57.5
+     radius: 150.25
+   ExampleResponse: 
+    value:
+      assetList:
+        - deviceId: 'urn:afc:AS04:droneMissions:MDH:GW:drone001'
+          type: airSensor
+          location:
+            latitude: 45.45123
+            longitude: 25.25456
+            altitude: 2.10789
+          observations:
+            - observedProperty: fake_UPM_1
+              time: '2019-09-11T05:52:45Z'
+              uom: 'https://qudt.org/vocab/unit/DEG_C'
+              value: 19.64
+            - observedProperty: fake_UPM_2
+              time: '2019-09-11T05:52:45Z'
+              uom: 'https://qudt.org/vocab/unit/DEG_C'
+              value: 19.64
+      sequenceNumber: 123

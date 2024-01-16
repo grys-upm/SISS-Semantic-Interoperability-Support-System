@@ -1,0 +1,134 @@
+2023-10-16 18:18:38,092 DEBUG [grizzly-http-server-0] - Decomposer - Starting with the decomposition of the JSON into key-value pairs
+2023-10-16 18:18:38,092 DEBUG [grizzly-http-server-0] - TemporalHandler - ----> Temporal information in yyyy-MM-dd'T'HH:mm:ss format has been found.
+2023-10-16 18:18:38,094 DEBUG [grizzly-http-server-0] - SpatialHandler - -----> Spatial information has been found in AsWKT format.
+2023-10-16 18:18:38,095 DEBUG [grizzly-http-server-0] - Levensthein - Calculating semantic content equivalence between properties via Levensthein
+2023-10-16 18:18:38,157 DEBUG [grizzly-http-server-0] - Levensthein - Levensthein matches: 6
+2023-10-17 13:37:43,225 DEBUG [main] - WebApp - Jersey app started with WADL available at https://0.0.0.0:9105/application.wadl
+base dir:: C:\Users\mario\eclipse-workspaceWeb\SIS-SemanticInteroperability
+ Hit enter to stop it...
+2023-10-17 14:04:15,826 DEBUG [grizzly-http-server-6] - RestInterface - Mapping request Receibed from IP: 0:0:0:0:0:0:0:1, Request ID: 477537851706590108
+2023-10-17 14:04:15,828 DEBUG [grizzly-http-server-6] - Decomposer - Starting with the process to generate the mapping
+2023-10-17 14:04:15,876 DEBUG [grizzly-http-server-6] - Decomposer - Starting with the decomposition of the JSON into key-value pairs
+2023-10-17 14:04:15,886 DEBUG [grizzly-http-server-6] - TemporalHandler - ----> Temporal information in Epoch timestamp format has been found. Resolution: seconds
+2023-10-17 14:04:15,887 DEBUG [grizzly-http-server-6] - TemporalHandler - ----> Temporal information in Epoch timestamp format has been found. Resolution: seconds
+2023-10-17 14:04:15,889 DEBUG [grizzly-http-server-6] - SpatialHandler - -----> Spatial information has been found in latitude, longitude format.
+2023-10-17 14:04:15,889 DEBUG [grizzly-http-server-6] - SpatialHandler - -----> Spatial information has been found in latitude, longitude format.
+2023-10-17 14:04:15,891 DEBUG [grizzly-http-server-6] - Decomposer - Starting with the decomposition of the JSON into key-value pairs
+2023-10-17 14:04:15,892 DEBUG [grizzly-http-server-6] - TemporalHandler - ----> Temporal information in yyyy-MM-dd'T'HH:mm:ss format has been found.
+2023-10-17 14:04:15,896 DEBUG [grizzly-http-server-6] - SpatialHandler - -----> Spatial information has been found in AsWKT format.
+2023-10-17 14:04:15,898 DEBUG [grizzly-http-server-6] - Levensthein - Calculating semantic content equivalence between properties via Levensthein
+2023-10-17 14:04:15,963 DEBUG [grizzly-http-server-6] - Levensthein - Levensthein matches: 6
+2023-10-27 17:02:33,837 DEBUG [main] - WebApp - Jersey app started with WADL available at https://0.0.0.0:9105/application.wadl
+base dir:: C:\Users\mario\eclipse-workspaceWeb\SIS-SemanticInteroperability
+ Hit enter to stop it...
+2023-11-06 12:28:35,850 DEBUG [main] - WebApp - Jersey app started with WADL available at https://0.0.0.0:9105/application.wadl
+base dir:: C:\Users\mario\eclipse-workspaceWeb\SIS-SemanticInteroperability
+ Hit enter to stop it...
+2023-11-06 13:16:44,591 DEBUG [grizzly-http-server-7] - RestInterface - Mapping request Receibed from IP: 0:0:0:0:0:0:0:1, Request ID: 1635156255669429667
+2023-11-06 13:16:44,592 DEBUG [grizzly-http-server-7] - Decomposer - Starting with the process to generate the mapping
+2023-11-06 13:16:44,604 DEBUG [grizzly-http-server-7] - Decomposer - Starting with the decomposition of the JSON into key-value pairs
+2023-11-06 13:16:44,608 DEBUG [grizzly-http-server-7] - TemporalHandler - ----> Temporal information in Epoch timestamp format has been found. Resolution: seconds
+2023-11-06 13:16:44,608 DEBUG [grizzly-http-server-7] - TemporalHandler - ----> Temporal information in Epoch timestamp format has been found. Resolution: seconds
+2023-11-06 13:16:44,609 DEBUG [grizzly-http-server-7] - SpatialHandler - -----> Spatial information has been found in latitude, longitude format.
+2023-11-06 13:16:44,609 DEBUG [grizzly-http-server-7] - SpatialHandler - -----> Spatial information has been found in latitude, longitude format.
+2023-11-06 13:16:44,610 DEBUG [grizzly-http-server-7] - Decomposer - Starting with the decomposition of the JSON into key-value pairs
+2023-11-06 13:16:44,610 DEBUG [grizzly-http-server-7] - TemporalHandler - ----> Temporal information in yyyy-MM-dd'T'HH:mm:ss format has been found.
+2023-11-06 13:16:44,611 DEBUG [grizzly-http-server-7] - SpatialHandler - -----> Spatial information has been found in AsWKT format.
+2023-11-06 13:16:44,612 DEBUG [grizzly-http-server-7] - Levensthein - Calculating semantic content equivalence between properties via Levensthein
+2023-11-06 13:16:44,654 DEBUG [grizzly-http-server-7] - Levensthein - Levensthein matches: 6
+2023-11-06 13:16:45,046 DEBUG [grizzly-http-server-7] - OpenWeatherExtractor - {
+  "coord" : {
+    "lon" : 16.4001,
+    "lat" : 57.9202
+  },
+  "weather" : [ {
+    "id" : 803,
+    "main" : "Clouds",
+    "description" : "broken clouds",
+    "icon" : "04d"
+  } ],
+  "base" : "stations",
+  "main" : {
+    "temp" : 282.3,
+    "feels_like" : 281.32,
+    "temp_min" : 282.3,
+    "temp_max" : 282.3,
+    "pressure" : 991,
+    "humidity" : 82,
+    "sea_level" : 991,
+    "grnd_level" : 988
+  },
+  "visibility" : 10000,
+  "wind" : {
+    "speed" : 2.04,
+    "deg" : 285,
+    "gust" : 3.56
+  },
+  "clouds" : {
+    "all" : 83
+  },
+  "dt" : 1699272625,
+  "sys" : {
+    "country" : "SE",
+    "sunrise" : 1699251519,
+    "sunset" : 1699282641
+  },
+  "timezone" : 3600,
+  "id" : 2712988,
+  "name" : "Gamleby",
+  "cod" : 200
+}
+2023-11-06 13:18:08,138 DEBUG [grizzly-http-server-8] - RestInterface - Mapping request Receibed from IP: 0:0:0:0:0:0:0:1, Request ID: 1635156255669429667
+2023-11-06 13:18:08,139 DEBUG [grizzly-http-server-8] - Decomposer - Starting with the process to generate the mapping
+2023-11-06 13:18:08,139 DEBUG [grizzly-http-server-8] - Decomposer - Starting with the decomposition of the JSON into key-value pairs
+2023-11-06 13:18:08,141 DEBUG [grizzly-http-server-8] - TemporalHandler - ----> Temporal information in Epoch timestamp format has been found. Resolution: seconds
+2023-11-06 13:18:08,141 DEBUG [grizzly-http-server-8] - TemporalHandler - ----> Temporal information in Epoch timestamp format has been found. Resolution: seconds
+2023-11-06 13:18:08,141 DEBUG [grizzly-http-server-8] - SpatialHandler - -----> Spatial information has been found in latitude, longitude format.
+2023-11-06 13:18:08,141 DEBUG [grizzly-http-server-8] - SpatialHandler - -----> Spatial information has been found in latitude, longitude format.
+2023-11-06 13:18:08,142 DEBUG [grizzly-http-server-8] - Decomposer - Starting with the decomposition of the JSON into key-value pairs
+2023-11-06 13:18:08,143 DEBUG [grizzly-http-server-8] - TemporalHandler - ----> Temporal information in yyyy-MM-dd'T'HH:mm:ss format has been found.
+2023-11-06 13:18:08,144 DEBUG [grizzly-http-server-8] - SpatialHandler - -----> Spatial information has been found in AsWKT format.
+2023-11-06 13:18:08,144 DEBUG [grizzly-http-server-8] - Levensthein - Calculating semantic content equivalence between properties via Levensthein
+2023-11-06 13:18:08,183 DEBUG [grizzly-http-server-8] - Levensthein - Levensthein matches: 6
+2023-11-06 13:18:08,325 DEBUG [grizzly-http-server-8] - OpenWeatherExtractor - {
+  "coord" : {
+    "lon" : 16.4001,
+    "lat" : 57.9202
+  },
+  "weather" : [ {
+    "id" : 803,
+    "main" : "Clouds",
+    "description" : "broken clouds",
+    "icon" : "04d"
+  } ],
+  "base" : "stations",
+  "main" : {
+    "temp" : 282.3,
+    "feels_like" : 281.32,
+    "temp_min" : 282.3,
+    "temp_max" : 282.3,
+    "pressure" : 991,
+    "humidity" : 82,
+    "sea_level" : 991,
+    "grnd_level" : 988
+  },
+  "visibility" : 10000,
+  "wind" : {
+    "speed" : 2.04,
+    "deg" : 285,
+    "gust" : 3.56
+  },
+  "clouds" : {
+    "all" : 83
+  },
+  "dt" : 1699272625,
+  "sys" : {
+    "country" : "SE",
+    "sunrise" : 1699251519,
+    "sunset" : 1699282641
+  },
+  "timezone" : 3600,
+  "id" : 2712988,
+  "name" : "Gamleby",
+  "cod" : 200
+}
