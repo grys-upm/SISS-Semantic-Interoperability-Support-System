@@ -40,7 +40,7 @@ The Semantic Interoperability Support System (SIS) GUI is shown below. The objec
 
 
 # References
-- Semantic Interoperability Support System [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7263254.svg)](https://doi.org/10.5281/zenodo.7263254)
+- Semantic Interoperability Support System
 
 # License
 Parts copyrighted by Universidad Politécnica de Madrid (UPM) are distributed under a dual license scheme:
